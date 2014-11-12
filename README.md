@@ -74,9 +74,5 @@ or use **gitmodules** to your exsisting thesis repository
 All done :)  ...and now you can give a try to become a powerful LaTeX Ninja!
 
 
-## Maintenance
-Quick remove unnecessary files from compilation folder (into terminal)
-
-```
-$ rm *.aux *.log *.toc *.lot *.lol *.lot *.out *.dvi *.bbl *.bcf *.blg *.run.xml *.lof *.gz *.gz\(busy\)
-```
+## License
+MIT License - Maciej Sypień
