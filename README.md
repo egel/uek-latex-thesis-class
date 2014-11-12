@@ -74,54 +74,6 @@ or use **gitmodules** to your exsisting thesis repository
 All done :)  ...and now you can give a try to become a powerful LaTeX Ninja!
 
 
-## Class options
-
-> Options are Case Sensitive (so there is a difference between `indexNumber` and `indexnumber`)
-
-  - `twoside` --- sets type of printing of the document (**default value is**: oneside);
-
-  - `male` or `female` --- sets all generall setting (like ex: author statement) to men or women preferences (**default value is**: male);
-
-  - `fileVersion` --- print version of document (**default value is**: off); <br/>It's usually used only for helping purposes. This option is defined by `\globalVersion` variable.
-
-  - `indexNumber` --- print student's index number; (**default value is**: off) <br/>This option is defined by `\globalIndexNumber` variable.
-
-  - `keywords` --- print keywords in PDF; (**default value is**: off) <br/>This option is defined by `\globalKeywords` variable. In the backend it also includes these keywords to generated file by *pdflatex* by default. To see more generate PDF and look into file's preferences > document.
-
-
-#### Additional class commands:
-
-##### Captionsource
-
-`captionsource` --- this command provide convenient way for including caption for many latex objects(tables, figures, math, ect.) with additional source field of where it came from.
-
-```
-\captionsource{<text-of-the-caption>}{<text-of-the-source>}
-```
-
-##### Lowercase and uppercase references
-
-   - `\lnameref` --- this command provides a reference to the latex's object and print it in lowercase.
-
-   - `\fnameref` --- this command provides a reference to the latex's object and print it in uppercase.
-
-> The important, additional command which do the job is `\nmu`. Its handle of setting uppercase or lowercase in letters.
-
-**Simple example**:
-
-Setter:
-
-```
-\chapter{\nmu BibTeX \nmu Is \nmu Very \nmu Old}
-\label{chap:this_is_chapter_one}
-```
-
-Reference:
-
-```
-...something reference to chapter \lnameref{chap:this_is_chapter_one}.
-```
-
 ## Maintenance
 Quick remove unnecessary files from compilation folder (into terminal)
 
