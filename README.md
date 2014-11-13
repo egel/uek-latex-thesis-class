@@ -57,18 +57,26 @@ You can download [Miktex](http://miktex.org/). It's more-less an equivalent of *
 
 Using **Git** you can clone this repo:
 
-    git clone git@github.com:egel/latex-example.git "lib"
+    git clone git@github.com:egel/uek-latex-thesis-class.git "lib"
 
-or use **gitmodules** to your exsisting thesis repository
+or use **gitmodules** to your exsisting thesis repository:
 
-    git submodule add git@github.com:egel/latex-example.git "lib"
+    git submodule add git@github.com:egel/uek-latex-thesis-class.git "lib"
 
-### <a name="compile-document"></a>Compile whole document:
+Also you can simply use download button ;)
 
-    $ pdflatex document_main.tex
-    $ pdflatex document_main.tex
-    $ biber bibliografia.tex
-    $ pdflatex document_main.tex
+### <a name="compile-document"></a>Compile whole document using uekthesis class:
+
+**How to add this class to document?**
+
+You see at my another repo which presents [full latex thesis example](https://github.com/egel/latex-thesis-example) with using this class.
+
+Then compile you file
+
+    $ pdflatex main.tex
+    $ pdflatex main.tex
+    $ biber bibliography.tex
+    $ pdflatex main.tex
 
 ### <a name="become-a-ninja"></a>Become a Ninja
 All done :)  ...and now you can give a try to become a powerful LaTeX Ninja!
