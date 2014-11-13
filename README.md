@@ -24,7 +24,9 @@ This is LaTeX thesis class created for students of Cracow University of Economic
 
   - `male` or `female` --- sets all generall setting (like ex: author statement) to men or women preferences (**default value is**: male);
 
-  - `fileVersion` --- print version of document (**default value is**: off); <br/>It's usually used only for helping purposes. This option is defined by `\globalVersion` variable.
+  - `authorStatement` --- prints author's statement (**default value is**: off) <br/>This attach to document that author's thesis was made by himself and himself alone.
+
+  - `fileVersion` --- print version of document (**default value is**: off) <br/>It's usually used only for helping purposes. This option is defined by `\globalVersion` variable.
 
   - `indexNumber` --- print student's index number; (**default value is**: off) <br/>This option is defined by `\globalIndexNumber` variable.
 
