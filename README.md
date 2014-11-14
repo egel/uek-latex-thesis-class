@@ -5,8 +5,7 @@ This is LaTeX thesis class created for students of Cracow University of Economic
 
 ## Features
 
-  - Full support of `biblatex` + `biber`
-  - Polish fonts support (also for listings package);
+  - Polish fonts support;
   - UTF-8 encoding by default;
   - Implemented [Generall Editor's Rules](#generall-editors-rules);
   - Many class options for easy personal confuguation;
