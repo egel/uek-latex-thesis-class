@@ -113,6 +113,7 @@
 \RequirePackage{chngcntr}              % pakiet który definiuje komendy \coun­ter­within oraz \coun­ter­with­out
 \RequirePackage{textcomp, gensymb}     % pakiet który definiuje znaki m.in. \degree, \textdegree
 \RequirePackage{cases}                 % pakiet numeracji równań z 'numcases'
+\RequirePackage{todonotes}             % pakiet pomagający przy prowadzeniu notatek "Co jeszcze do zrobienia"
 
 %##############################################################################
 % DEFAULT OPTIONS
