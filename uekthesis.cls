@@ -218,7 +218,7 @@
 \DeclareOption{indexNumber}{%
   \def\addIndexNumber{
     \begin{center}
-    Nr. indeksu:
+    Nr.\ indeksu:
     \@globalIndexNumber
     \end{center}
   }
@@ -230,9 +230,9 @@
 \DeclareOption{male}{%
   \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
-      \titlepage
+      \titlepage%
       \vspace*{10mm}
-      {\large\itshape O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}em osobi\'scie i samodzielnie oraz nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
+      {\large\textit O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}em osobi\'scie i samodzielnie oraz nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
@@ -246,9 +246,9 @@
 \DeclareOption{female}{%
   \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
-      \titlepage
+      \titlepage%
       \vspace*{10mm}
-      {\large\itshape O\'swiadczam, \'swiadoma odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}am osobi\'scie i samodzielnie oraz nie korzysta\l{}am ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
+      {\large\textit O\'swiadczam, \'swiadoma odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}am osobi\'scie i samodzielnie oraz nie korzysta\l{}am ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
@@ -260,11 +260,11 @@
 }% END female
 
 %##############################################################################
-\ProcessOptions
+\ProcessOptions%
 
 \newcommand{\titlepages}{% Ustawienia stron tytułowych
 
-  \newpage \titlepage
+  \newpage \titlepage%
   \begin{center}
     {%
         {\sffamily\LARGE\scshape\globalFullUniversity}\\
@@ -283,25 +283,25 @@
 
     {\LARGE\bfseries\globalFullTitle}\\
     \vspace*{10mm}
-    {\large \globalThesisType \addVersion}\\
+    {\large \globalThesisType{\ }\addVersion}\\
     \vspace*{10mm}
   \end{center}
 
   {\large\addSupervisor}
 
-  \null
+  \null%
   \vfill
   \centerline{\large{\globalCity~\globalYear}}
   \addtocounter{introPageCounter}{1} % increased introPageCounter
   \clearpage
 
-  \statementOfTheAuthor
+  \statementOfTheAuthor%
 
-  \titlepage
+  \titlepage%
   \vspace*{15cm} \vfill
   \begin{flushright}
     \begin{minipage}[!h]{10cm}
-      {\large\itshape \globalAcknowledgements}
+      {\large\textit\globalAcknowledgements}
     \end{minipage}
   \end{flushright}
   \addtocounter{introPageCounter}{1} % increased introPageCounter
@@ -315,7 +315,7 @@
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \renewcommand{\headrulewidth}{0.2pt}
 \renewcommand{\footrulewidth}{0.2pt}
-\thesisHeaders
+\thesisHeaders%
 
 \frenchspacing
 \sloppy
@@ -341,3 +341,4 @@
 \setlength{\cftparskip}{2pt}
 \setlength{\cftbeforechapskip}{0mm}
 \renewcommand{\cftchappagefont}{\normalsize}
+
