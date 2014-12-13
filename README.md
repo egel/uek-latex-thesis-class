@@ -10,7 +10,7 @@ LaTeX thesis class created for students of Cracow University of Economics.
 
   - Full Polish fonts support (include listings);
   - UTF-8 encoding by default;
-  - Implemented [Generall Editor's Rules](#generall-editors-rules);
+  - Implemented [The UEK Editorial Recommendations](https://github.com/egel/uek-latex-thesis-class/wiki/The-Editorial-Recommendations);
   - Many class options for easy personal confuguation;
   - Autoconfiguration for male or female formating of thesis;
   - Easy to set global variables;
