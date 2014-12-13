@@ -10,7 +10,7 @@
 
 \message{### uekthesis.cls --- ver. 1.0.0 --- Maciej Sypień ###}
 
-\newif\ifpdflatex\pdflatexfalse
+\newif\ifpdflatex\pdflatexfalse%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{lib/uekthesis}[2014/16/12 LaTeX class for thesis documents]
 \DeclareOption{pdflatex}{\pdflatextrue}
@@ -51,7 +51,7 @@
 % (Rozdział 4.7.4 z latex w 129 minut)
 %##############################################################################
 \AtBeginDocument{%
-  \hypersetup{
+  \hypersetup{%
     unicode=true,
     pdfencoding=unicode,
     pdfencoding=auto,
@@ -123,16 +123,16 @@
   \setcounter{introPageCounter}{1}
 
   %###################################################
-  % set geometry for two-side and oneside
+  % Set geometry for oneside (default)
   \geometry{lmargin=30mm, rmargin=20mm, tmargin=30mm, bmargin=30mm, foot=10mm, head=10mm}
 
   %###################################################
-  % Thesis oneside OPTION
+  % Thesis oneside OPTION (default)
   % definiuje dolne i górne wykończenie strony
   \def\thesisHeaders{
     \fancyhf{}
     \fancyhead{}
-    \fancyhead[L]{\slshape{\small \rightmark}}
+    \fancyhead[L]{\small\textit \rightmark}
     \fancyhead[R]{\bfseries \thepage}
 
     \fancypagestyle{plain}{%
@@ -157,7 +157,7 @@
   \def\addIndexNumber{}
   \def\statementOfTheAuthor{}
 
-  %###################################################
+  %############################################################################
   % Supervisor
   \def\addSupervisor{
     \begin{flushright}
@@ -166,7 +166,7 @@
     \end{flushright}
   }
 
-  %###################################################
+  %############################################################################
   % Ustawienia parametrów dla tytułów rozdziałów, podrozdziałów, itd.
 
   %\titleformat{\chapter}[block]
@@ -176,15 +176,15 @@
   \titlespacing{\chapter}{0pt}{17mm}{19mm}
 
   \titleformat{\section}[block]
-    {\bfseries\Large}{\filright \Large\thesection. }{0ex}{}
+    {\bfseries\Large}{\filright\Large\thesection. }{0ex}{}
   \titlespacing{\section}{0mm}{8mm plus 0mm minus 1mm}{4mm plus 0mm minus 1mm}
 
   \titleformat{\subsection}[block]
-    {\bfseries\large}{\filright \large\thesubsection. }{0ex}{}
+    {\bfseries\large}{\filright\large\thesubsection. }{0ex}{}
   \titlespacing{\subsection}{0mm}{6mm}{2.5mm}
 
   \titleformat{\subsubsection}[block]
-    {\bfseries\normalsize}{\filright \normalsize\thesubsubsection. }{0ex}{}
+    {\bfseries\normalsize}{\filright\normalsize\thesubsubsection. }{0ex}{}
   \titlespacing{\subsubsection}{0mm}{3mm}{1.5mm}
 
 %########################## END OF DEFAULT OPTIONS ############################
@@ -193,13 +193,13 @@
 
 %##############################################################################
 % Thesis twoside (Class OPTION)
-\DeclareOption{twoside}{
+\DeclareOption{twoside}{%
   \geometry{twoside=true,lmargin=3cm,rmargin=3cm,bindingoffset=0cm}
 
   \def\thesisHeaders{
     \fancyhf{}
     \fancyhead{}
-    \fancyhead[RE,LO]{\slshape{\small \rightmark}}
+    \fancyhead[RE,LO]{\textsl{\small \rightmark}}
     \fancyhead[RO,LE]{\bfseries \thepage}
 
     \fancyfoot[LE,RO]{\small \@globalShortAuthor\quad\textit{\@globalShortTitle}}
@@ -209,13 +209,13 @@
 
 %##############################################################################
 % File Version (Class OPTION)
-\DeclareOption{fileVersion}{
+\DeclareOption{fileVersion}{%
   \def\addVersion{ / wersja: \@globalFileVersion}
 }
 
 %##############################################################################
 % Student's Index Number (Class OPTION)
-\DeclareOption{indexNumber}{
+\DeclareOption{indexNumber}{%
   \def\addIndexNumber{
     \begin{center}
     Nr. indeksu:
@@ -227,8 +227,8 @@
 
 %##############################################################################
 % Statement of the Author (Class OPTION)
-\DeclareOption{male}{
-  \DeclareOption{authorStatement}{
+\DeclareOption{male}{%
+  \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
       \titlepage
       \vspace*{10mm}
@@ -243,8 +243,8 @@
   }
 }% END male
 
-\DeclareOption{female}{
-  \DeclareOption{authorStatement}{
+\DeclareOption{female}{%
+  \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
       \titlepage
       \vspace*{10mm}
@@ -262,28 +262,28 @@
 %##############################################################################
 \ProcessOptions
 
-\newcommand{\titlepages}{ % Ustawienia stron tytułowych
+\newcommand{\titlepages}{% Ustawienia stron tytułowych
 
   \newpage \titlepage
   \begin{center}
-    {
-        {\sffamily\LARGE\scshape\@globalFullUniversity}\\
+    {%
+        {\sffamily\LARGE\scshape\globalFullUniversity}\\
         \vspace*{2mm}
-        {\large\scshape\@globalDepartment}
+        {\large\scshape\globalDepartment}
     }
     \vspace*{15mm}
 
     \includegraphics[width=7cm]{lib/university-logo}
     \vspace*{15mm}
 
-    {\LARGE\@globalFullAuthor}
+    {\LARGE\globalFullAuthor}
     {\large\addIndexNumber}
 
     \vspace*{10mm}
 
-    {\LARGE\bfseries\@globalFullTitle}\\
+    {\LARGE\bfseries\globalFullTitle}\\
     \vspace*{10mm}
-    {\large \@globalThesisType \addVersion}\\
+    {\large \globalThesisType \addVersion}\\
     \vspace*{10mm}
   \end{center}
 
@@ -291,7 +291,7 @@
 
   \null
   \vfill
-  \centerline{\large{\@globalCity~\@globalYear}}
+  \centerline{\large{\globalCity~\globalYear}}
   \addtocounter{introPageCounter}{1} % increased introPageCounter
   \clearpage
 
@@ -301,7 +301,7 @@
   \vspace*{15cm} \vfill
   \begin{flushright}
     \begin{minipage}[!h]{10cm}
-      {\large\itshape \@globalAcknowledgements}
+      {\large\itshape \globalAcknowledgements}
     \end{minipage}
   \end{flushright}
   \addtocounter{introPageCounter}{1} % increased introPageCounter
