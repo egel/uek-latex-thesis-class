@@ -2,8 +2,9 @@
 %
 %  FileName:     uekthesis.cls
 %  Author:       Maciej Sypień (maciej.sypien@gmail.com)
-%  University:   Uniwersytet Ekonomiczny w Krakowie
-%  This Class is based on aghdpl.cls
+%  University:   Cracow University of Economics
+%                (Uniwersytet Ekonomiczny w Krakowie)
+%  Inspired by aghdpl.cls
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -11,8 +12,7 @@
 
 \newif\ifpdflatex\pdflatexfalse
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lib/uekthesis}[2014/16/12
-  LaTeX class for thesis documents]
+\ProvidesClass{lib/uekthesis}[2014/16/12 LaTeX class for thesis documents]
 \DeclareOption{pdflatex}{\pdflatextrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\LoadClass[a4paper, 12pt, oneside, openright]{report}
