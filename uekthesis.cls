@@ -40,11 +40,13 @@
 \def\globalKeywords#1  {\gdef\@globalKeywords{#1}}
 
 % zdefiniowanie kilku zmiennych do umieszczenia w tekscie
-\def\printFullAuthor{\@globalFullAuthor}   % Display
-\def\printFullTitle{\@globalFullTitle}     % Display
-\def\printShortTitle{\@globalShortTitle}   % Display
-\def\printThesisType{\@globalThesisType}   % Display
-\def\printKeywords{\@globalKeywords}       % Display
+\def\printFullAuthor{\@globalFullAuthor}             % Display
+\def\printFullUniversity{\@globalFullUniversity}     % Display
+\def\printDepartment{\@globalDepartment}     % Display
+\def\printFullTitle{\@globalFullTitle}               % Display
+\def\printShortTitle{\@globalShortTitle}             % Display
+\def\printThesisType{\@globalThesisType}             % Display
+\def\printKeywords{\@globalKeywords}                 % Display
 
 %##############################################################################
 % Ustawienie linkowania dokumetu oraz elementów wyświetlania pdfa
@@ -267,21 +269,21 @@
   \newpage \titlepage%
   \begin{center}
     {%
-        {\sffamily\LARGE\scshape\globalFullUniversity}\\
+        {\sffamily\LARGE\scshape\printFullUniversity}\\
         \vspace*{2mm}
-        {\large\scshape\globalDepartment}
+        {\large\scshape\printDepartment}
     }
     \vspace*{15mm}
 
     \includegraphics[width=7cm]{lib/university-logo}
     \vspace*{15mm}
 
-    {\LARGE\globalFullAuthor}
+    {\LARGE\printFullAuthor}
     {\large\addIndexNumber}
 
     \vspace*{10mm}
 
-    {\LARGE\bfseries\globalFullTitle}\\
+    {\LARGE\bfseries\printFullTitle}\\
     \vspace*{10mm}
     {\large \globalThesisType{\ }\addVersion}\\
     \vspace*{10mm}
