@@ -35,18 +35,25 @@
 \def\globalIndexNumber#1       {\gdef\@globalIndexNumber{#1}}       % Numer indeksu studneta
 \def\globalCity#1              {\gdef\@globalCity{#1}}              % Miasto
 \def\globalYear#1              {\gdef\@globalYear{#1}}              % Rok
+\def\globalKeywords#1          {\gdef\@globalKeywords{#1}}          % zestaw słów kluczowych dla pracy
 
-% zestaw słów kluczowych dla pracy
-\def\globalKeywords#1  {\gdef\@globalKeywords{#1}}
-
-% zdefiniowanie kilku zmiennych do umieszczenia w tekscie
-\def\printFullAuthor{\@globalFullAuthor}             % Display
-\def\printFullUniversity{\@globalFullUniversity}     % Display
-\def\printDepartment{\@globalDepartment}     % Display
-\def\printFullTitle{\@globalFullTitle}               % Display
-\def\printShortTitle{\@globalShortTitle}             % Display
-\def\printThesisType{\@globalThesisType}             % Display
-\def\printKeywords{\@globalKeywords}                 % Display
+% Zdefiniowanie kilku zmiennych do umieszczenia w tekscie
+\def\printFullAuthor{\@globalFullAuthor}              % Display
+\def\printShortAuthor{\@globalShortAuthor}            % Display
+\def\printFullTitle{\@globalFullTitle}                % Display
+\def\printShortTitle{\@globalShortTitle}              % Display
+\def\printFullUniversity{\@globalFullUniversity}      % Display
+\def\printShortUniversity{\@globalShortUniversity}    % Display
+\def\printDepartment{\@globalDepartment}              % Display
+\def\printThesisType{\@globalThesisType}              % Display
+\def\printSupervisor{\@globalSupervisor}              % Display
+\def\printAcknowledgments{\@globalAcknowledgements}   % Display
+\def\printDegreeprogramme{\@globalDegreeprogramme}    % Display
+\def\printFileVersion{\@globalFileVersion}            % Display
+\def\printIndexNumber{\@globalIndexNumber}            % Display
+\def\printCity{\@globalCity}                          % Display
+\def\printYear{\@globalYear}                          % Display
+\def\printKeywords{\@globalKeywords}                  % Display
 
 %##############################################################################
 % Ustawienie linkowania dokumetu oraz elementów wyświetlania pdfa
@@ -285,7 +292,7 @@
 
     {\LARGE\bfseries\printFullTitle}\\
     \vspace*{10mm}
-    {\large \globalThesisType{\ }\addVersion}\\
+    {\large \printThesisType{\ }\addVersion}\\
     \vspace*{10mm}
   \end{center}
 
@@ -293,7 +300,7 @@
 
   \null%
   \vfill
-  \centerline{\large{\globalCity~\globalYear}}
+  \centerline{\large{\printCity~\printYear}}
   \addtocounter{introPageCounter}{1} % increased introPageCounter
   \clearpage
 
@@ -303,7 +310,7 @@
   \vspace*{15cm} \vfill
   \begin{flushright}
     \begin{minipage}[!h]{10cm}
-      {\large\textit\globalAcknowledgements}
+      {\large\textit\printAcknowledgments}
     \end{minipage}
   \end{flushright}
   \addtocounter{introPageCounter}{1} % increased introPageCounter
