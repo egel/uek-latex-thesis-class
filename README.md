@@ -80,8 +80,8 @@ Then compile you file (standard full LaTeX compilation)
     $ biber bibliography.tex
     $ pdflatex main.tex
 
-### <a name="become-a-ninja"></a>Become a Ninja
-All done :)  ...and now you can give a try to become a powerful LaTeX Ninja!
+### Become a LaTeX Ninja
+All done :)  ...and now you can give a easy try to become a powerful LaTeX Ninja!
 
 
 ## License
