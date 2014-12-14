@@ -1,3 +1,4 @@
+[![MIT License](http://img.shields.io/badge/license-MIT-yellowgreen.svg)](https://github.com/egel/uek-latex-thesis-class/blob/master/LICENSE)
 # UEK LaTeX Thesis Class
 
 LaTeX thesis class created for students of Cracow University of Economics.
