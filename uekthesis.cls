@@ -28,7 +28,7 @@
 \def\globalShortUniversity#1         {\gdef\@globalShortUniversity{#1}}           % Pełna nazwa uniwersytetu
 \def\globalDepartment#1              {\gdef\@globalDepartment{#1}}                % Wydział
 \def\globalThesisType#1              {\gdef\@globalThesisType{#1}}                % Typ pracy dyplomowej
-\def\globalUnderTheSupervisonOf#1    {\gdef\@globalUnderTheSupervisonOf {#1}}     % Napis pod kierunkiem
+\def\globalUnderTheSupervisonOf#1    {\gdef\@globalUnderTheSupervisonOf {#1}}     % pod kierunkiem (napis)
 \def\globalSupervisor#1              {\gdef\@globalSupervisor{#1}}                % Promotor
 \def\globalAcknowledgements#1        {\gdef\@globalAcknowledgements{#1}}          % Podziękowania
 \def\globalDegreeprogramme#1         {\gdef\@globalDegreeprogramme{#1}}           % Kierunek studiów
@@ -241,8 +241,9 @@
 \DeclareOption{male}{%
   \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
-      \vspace*{20mm}
-      {\large\textit{O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}em osobi\'scie i samodzielnie oraz nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}}
+      \vspace{20mm}
+
+      \noindent\textit{\large O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}em osobi\'scie i samodzielnie oraz nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
@@ -255,8 +256,9 @@
 \DeclareOption{female}{%
   \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
-      \vspace*{20mm}
-      {\large\textit{O\'swiadczam, \'swiadoma odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}am osobi\'scie i samodzielnie oraz nie korzysta\l{}am ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}}
+      \vspace{20mm}
+
+      \noindent\textit{\large O\'swiadczam, \'swiadoma odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}am osobi\'scie i samodzielnie oraz nie korzysta\l{}am ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
