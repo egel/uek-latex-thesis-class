@@ -4,7 +4,7 @@
 LaTeX thesis class created for students of Cracow University of Economics.
 
 ***
-[Installation](#installation) | [Class options](#class-options) | [Live example](https://www.sharelatex.com/project/548b548ddbb91e9c7f2351d6) | [Learn more on wiki](https://github.com/egel/uek-latex-thesis-class/wiki) | [License](#license)
+[Installation](#installation) | [Class options](#class-options) | [**Live example**](https://www.sharelatex.com/project/548b548ddbb91e9c7f2351d6) | [Learn more on wiki](https://github.com/egel/uek-latex-thesis-class/wiki) | [License](#license)
 ***
 
 ## Features
