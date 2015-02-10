@@ -20,22 +20,23 @@
 %##############################################################################
 % Definicje zmiennych
 %##############################################################################
-\def\globalFullAuthor#1        {\gdef\@globalFullAuthor{#1}}        % Pełna nazwa autora pracy
-\def\globalShortAuthor#1       {\gdef\@globalShortAuthor{#1}}       % Autor - zwięzła forma wydruku
-\def\globalFullTitle#1         {\gdef\@globalFullTitle{#1}}         % Pełny tytuł pracy
-\def\globalShortTitle#1        {\gdef\@globalShortTitle{#1}}        % Krótki, zwięzły tytuł pracy # najlepiej aby nie zawierał komend LaTeXa
-\def\globalFullUniversity#1    {\gdef\@globalFullUniversity{#1}}    % Pełna nazwa uniwersytetu
-\def\globalShortUniversity#1   {\gdef\@globalShortUniversity{#1}}   % Pełna nazwa uniwersytetu
-\def\globalDepartment#1        {\gdef\@globalDepartment{#1}}        % Wydział
-\def\globalThesisType#1        {\gdef\@globalThesisType{#1}}        % Typ pracy dyplomowej
-\def\globalSupervisor#1        {\gdef\@globalSupervisor{#1}}        % Promotor
-\def\globalAcknowledgements#1  {\gdef\@globalAcknowledgements{#1}}  % Podziękowania
-\def\globalDegreeprogramme#1   {\gdef\@globalDegreeprogramme{#1}}   % Kierunek studiów
-\def\globalFileVersion#1       {\gdef\@globalFileVersion{#1}}       % Wersja pracy
-\def\globalIndexNumber#1       {\gdef\@globalIndexNumber{#1}}       % Numer indeksu studneta
-\def\globalCity#1              {\gdef\@globalCity{#1}}              % Miasto
-\def\globalYear#1              {\gdef\@globalYear{#1}}              % Rok
-\def\globalKeywords#1          {\gdef\@globalKeywords{#1}}          % zestaw słów kluczowych dla pracy
+\def\globalFullAuthor#1              {\gdef\@globalFullAuthor{#1}}                % Pełna nazwa autora pracy
+\def\globalShortAuthor#1             {\gdef\@globalShortAuthor{#1}}               % Autor - zwięzła forma wydruku
+\def\globalFullTitle#1               {\gdef\@globalFullTitle{#1}}                 % Pełny tytuł pracy
+\def\globalShortTitle#1              {\gdef\@globalShortTitle{#1}}                % Krótki, zwięzły tytuł pracy # najlepiej aby nie zawierał komend LaTeXa
+\def\globalFullUniversity#1          {\gdef\@globalFullUniversity{#1}}            % Pełna nazwa uniwersytetu
+\def\globalShortUniversity#1         {\gdef\@globalShortUniversity{#1}}           % Pełna nazwa uniwersytetu
+\def\globalDepartment#1              {\gdef\@globalDepartment{#1}}                % Wydział
+\def\globalThesisType#1              {\gdef\@globalThesisType{#1}}                % Typ pracy dyplomowej
+\def\globalUnderTheSupervisonOf#1    {\gdef\@globalUnderTheSupervisonOf {#1}}     % Napis pod kierunkiem
+\def\globalSupervisor#1              {\gdef\@globalSupervisor{#1}}                % Promotor
+\def\globalAcknowledgements#1        {\gdef\@globalAcknowledgements{#1}}          % Podziękowania
+\def\globalDegreeprogramme#1         {\gdef\@globalDegreeprogramme{#1}}           % Kierunek studiów
+\def\globalFileVersion#1             {\gdef\@globalFileVersion{#1}}               % Wersja pracy
+\def\globalIndexNumber#1             {\gdef\@globalIndexNumber{#1}}               % Numer indeksu studneta
+\def\globalCity#1                    {\gdef\@globalCity{#1}}                      % Miasto
+\def\globalYear#1                    {\gdef\@globalYear{#1}}                      % Rok
+\def\globalKeywords#1                {\gdef\@globalKeywords{#1}}                  % zestaw słów kluczowych dla pracy
 
 % Zdefiniowanie kilku zmiennych do umieszczenia w tekscie
 \def\printFullAuthor{\@globalFullAuthor}              % Display
@@ -91,7 +92,7 @@
 \RequirePackage[T1]{fontenc}           % Nowy zestaw czcionek
 \RequirePackage{times}                 % Times - Czcionki wektorowe
 \RequirePackage{graphicx}              % Wstawianie grafiki
-\RequirePackage{geometry}              %
+\RequirePackage{geometry}              % Ustawienie wielkości odstępów od brzegów
 \RequirePackage[usenames]{color}       % Palety kolorów zdefionwanych
 \RequirePackage[dvipsnames]{xcolor}    % Zestaw kolorów
 \RequirePackage{fancyhdr}              %
@@ -114,7 +115,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{multirow}              % pakiet dla łaczenia wierszy w tabelach
 \RequirePackage{longtable}             % pakiet wspomagający długie tabele
-\RequirePackage{tabularx}               % dla pełnej długości tabeli (textwidth)
+\RequirePackage{tabularx}              % dla pełnej długości tabeli (textwidth)
 \RequirePackage{tabu}
 \RequirePackage{hhline}                % pakiet dla łaczenia kolumn w tabelach
 \RequirePackage{listings}              % pakiet dla kodów zródłowych
@@ -165,17 +166,18 @@
   \def\addVersion{}
   \def\addIndexNumber{}
   \def\statementOfTheAuthor{}
+  \def\appendKeywords{}
 
-  %############################################################################
+  %###################################################
   % Supervisor
   \def\addSupervisor{
     \begin{flushright}
-    pod kierunkiem\quad\\
-    \@globalSupervisor\quad
+      \@globalUnderTheSupervisonOf \quad\\
+      \@globalSupervisor\quad
     \end{flushright}
   }
 
-  %############################################################################
+  %###################################################
   % Ustawienia parametrów dla tytułów rozdziałów, podrozdziałów, itd.
 
   %\titleformat{\chapter}[block]
@@ -219,7 +221,7 @@
 %##############################################################################
 % File Version (Class OPTION)
 \DeclareOption{fileVersion}{%
-  \def\addVersion{ / wersja: \@globalFileVersion}
+  \def\addVersion{|  wersja: \@globalFileVersion}
 }
 
 %##############################################################################
@@ -239,14 +241,12 @@
 \DeclareOption{male}{%
   \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
-      \titlepage%
-      \vspace*{10mm}
+      \vspace*{20mm}
       {\large\textit O\'swiadczam, \'swiadomy odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}em osobi\'scie i samodzielnie oraz nie korzysta\l{}em ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
       \quad\quad\quad
-      \clearpage
       \addtocounter{introPageCounter}{1} % increased introPageCounter
     }
   }
@@ -255,18 +255,26 @@
 \DeclareOption{female}{%
   \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
-      \titlepage%
-      \vspace*{10mm}
+      \vspace*{20mm}
       {\large\textit O\'swiadczam, \'swiadoma odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}am osobi\'scie i samodzielnie oraz nie korzysta\l{}am ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
       \vspace{20mm}
 
       \hfill \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
       \quad\quad\quad
-      \clearpage
       \addtocounter{introPageCounter}{1} % increased introPageCounter
     }
   }
 }% END female
+
+%##############################################################################
+% Keywords (Class OPTION)
+% TODO: fix problem with counter for authorStatement
+\DeclareOption{keywords}{%
+  \def\appendKeywords{
+    {\noindent\large S\l{}owa kluczowe: \textit\printKeywords}
+  }
+}% END male
+
 
 %##############################################################################
 \ProcessOptions%
@@ -304,7 +312,10 @@
   \addtocounter{introPageCounter}{1} % increased introPageCounter
   \clearpage
 
+  \titlepage%
+  \appendKeywords%
   \statementOfTheAuthor%
+  \clearpage
 
   \titlepage%
   \vspace*{15cm} \vfill
