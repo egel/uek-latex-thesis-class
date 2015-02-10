@@ -23,15 +23,17 @@ LaTeX thesis class created for students of Cracow University of Economics.
 
 > Options are Case Sensitive (so there is a difference between `indexNumber` and `indexnumber` and `IndexNumber`)
 
-  - `male` or `female` --- sets all generall setting (like ex: author statement) to men or women preferences (**default value is**: male);
+  - `male` or `female` - sets all generall setting (like ex: author statement) to men or women preferences (**default value is**: male);
 
-  - `authorStatement` --- prints author's statement (**default value is**: off) <br/>This attach to document that author's thesis was made by himself and himself alone.
+  - `authorStatement` - prints author's statement (**default value is**: off) <br/>This attach to document that author's thesis was made by himself and himself alone.
 
-  - `twoside` --- sets type of printing of the document (**default value is**: oneside);
+  - `keywords` - print keywords from `\globalKeywords` variable (**default value is**: off);
 
-  - `fileVersion` --- print version of document (**default value is**: off) <br/>It's usually used only for helping purposes. This option is defined by `\globalVersion` variable.
+  - `twoside` - sets type of printing of the document (**default value is**: oneside);
 
-  - `indexNumber` --- print student's index number; (**default value is**: off) <br/>This option can be set by `\globalIndexNumber` variable.
+  - `fileVersion` - print version of document (**default value is**: off) <br/>It's usually used only for helping purposes. This option is defined by `\globalVersion` variable.
+
+  - `indexNumber` - print student's index number; (**default value is**: off) <br/>This option can be set by `\globalIndexNumber` variable.
 
 
 ## Installation

@@ -165,8 +165,9 @@
   % domyślnie puste
   \def\addVersion{}
   \def\addIndexNumber{}
-  \def\statementOfTheAuthor{}
   \def\appendKeywords{}
+  \def\statementOfTheAuthor{}
+  \def\thanksOfTheAuthor{}
 
   %###################################################
   % Supervisor
@@ -279,6 +280,23 @@
 
 
 %##############################################################################
+% Thanks (Class OPTION)
+\DeclareOption{thanks}{%
+  \def\thanksOfTheAuthor{
+    \titlepage%
+    \vspace*{15cm} \vfill
+    \begin{flushright}
+      \begin{minipage}[!h]{10cm}
+        {\large\textit\printAcknowledgments}
+      \end{minipage}
+    \end{flushright}
+    \addtocounter{introPageCounter}{1} % increased introPageCounter
+    \clearpage
+  }
+}% END male
+
+
+%##############################################################################
 \ProcessOptions%
 
 \newcommand{\titlepages}{% Ustawienia stron tytułowych
@@ -319,15 +337,7 @@
   \statementOfTheAuthor%
   \clearpage
 
-  \titlepage%
-  \vspace*{15cm} \vfill
-  \begin{flushright}
-    \begin{minipage}[!h]{10cm}
-      {\large\textit\printAcknowledgments}
-    \end{minipage}
-  \end{flushright}
-  \addtocounter{introPageCounter}{1} % increased introPageCounter
-  \clearpage
+  \thanksOfTheAuthor%
 
   \setcounter{page}{\value{introPageCounter}}
 }
@@ -363,4 +373,3 @@
 \setlength{\cftparskip}{2pt}
 \setlength{\cftbeforechapskip}{0mm}
 \renewcommand{\cftchappagefont}{\normalsize}
-
