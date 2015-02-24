@@ -4,7 +4,7 @@
 LaTeX thesis class created for students of Cracow University of Economics.
 
 ***
-[Installation](#installation) | [Class options](#class-options) | [**Live example**](https://www.sharelatex.com/project/548b548ddbb91e9c7f2351d6) | [Learn more on wiki](https://github.com/egel/uek-latex-thesis-class/wiki) | [License](#license)
+[Installation](#installation) | [Class options](#class-options) | [**Live example**][live-example] | [Learn more on wiki](https://github.com/egel/uek-latex-thesis-class/wiki) | [License](#license)
 ***
 
 ## Features
@@ -76,7 +76,7 @@ Also you can simply download it, by clicking side download button ;)
 
 **How to add this class to document?**
 
-You can take a look at my another repository which I presents [**full latex thesis example**](https://github.com/egel/latex-thesis-example) with using this class in practice.
+> You can take a look at [this live example][live-example] which presents **uek-latex-thesis-class** in practice.
 
 After download the class, then in few formal steps you can compile you file (standard full LaTeX compilation)
 
@@ -92,3 +92,7 @@ All done :)  ...and now you can give a easy try to become a very powerful LaTeX 
 
 ## License
  MIT License, 2014 - Maciej Sypień
+
+
+
+  [live-example]: https://www.sharelatex.com/project/548b548ddbb91e9c7f2351d6 "UEK Thesis Live Example"
