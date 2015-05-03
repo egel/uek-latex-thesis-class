@@ -1,6 +1,391 @@
+% Style package for uekthesis.cls
+% University Economics in Cracow (UEK)
+%
+% (c) Maciej Sypień <maciej.sypien@gmail.com>
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+%
 \NeedsTeXFormat{LaTeX2e}
-\@obsoletefile{uekthesis.cls}{uekthesis.sty}
-\LoadClass{uekthesis}
+\ProvidesPackage{uekthesis}[2015/05/01 uekthesis style]
+%\@obsoletefile{uekthesis.cls}{uekthesis.sty}
+%\LoadClass{uekthesis}
+
+
+% USE Only UTF8 characters
+\RequirePackage[utf8]{inputenc}
+
+% pakiet który definiuje komendy \counter­within oraz \counter­without
+\RequirePackage{chngcntr}
+
+%##############################################################################
+% pakiet zastępujący mało modalny \fbox
+\RequirePackage[framemethod=tikz]{mdframed}
+
+% Modyfiukacja wydruku kodu latexa w ramce (pakiet: mdframed)
+\newmdenv[
+skipabove=0.2cm,
+skipbelow=0,
+nobreak=true
+]{outputbox}
+
+%##############################################################################
+% wymagane do osadzania wielu zdjec obok siebie
+\RequirePackage{graphicx}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+
+%##############################################################################
+% odstępy dla poszczególnych wierszy
+% 1.5em - odstęp od początku lewej strony tekstu
+% 2em - odstęp po numerze odwołującym sie do elementu (np: 4.3)
+\def\l@lstlisting#1#2{\@dottedtocline{1}{1.5em}{2.3em}{#1}{#2}}
+
+
+%##############################################################################
+% Defninicja komendy zmieniająca początkowy duży znak litery na mały
+% w odnośniku do tego rozdziału, sekcji, podsekcji, ect.
+% Lowercase \nameref = \lnameref
+\newcommand{\lnameref}[1]{%
+  \bgroup%
+  \let\nmu\MakeLowercase%
+  \nameref{#1}\egroup}
+
+% First UpperCase then lowercase = \fnameref
+\newcommand{\fnameref}[1]{%
+  \bgroup%
+  \def\nmu{\let\nmu\MakeLowercase}%
+  \nameref{#1}\egroup}
+
+% helper for lowercase newcommands
+\newcommand{\nmu}{}
+
+
+%##############################################################################
+% Dodanie komendy dla caption + source
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\hspace{\linewidth}%
+    {Źródło:} #2%
+  }%
+}
+
+%##############################################################################
+% Ustawienia dla bibliografii
+\DeclareQuoteAlias{croatian}{polish}
+\RequirePackage[
+language=polish,  % Ustawienie języka
+%urldate=long,     % Wyświetlenie długiego formatu w datach
+style=numeric,    % numeric, alphabetic, authoryear,
+sorting=nty,      % Sortowanie: nAME, tITLE, yEAR
+isbn=true,        % zgodnie z nowym rozporządzeniem  pole obowiązkowe
+firstinits=true,  % will render all first and middle names as initials.
+abbreviate=true,
+autolang=hyphen,
+backend=biber,]{biblatex}
+
+%##############################################################################
+% pakiet dla podpisów np: dla lstlintings
+\RequirePackage[
+  font=small,
+  format=hang,
+  labelformat=simple,
+  justification=justified,
+  singlelinecheck=false,
+  labelsep=colon
+]{caption}
+
+
+%##############################################################################
+% Zdefiniowanie nowego, dodatkowego jezyka
+% \lstdefinelanguage{LaTeX}{
+%   keywords={\textbf, \$, \$\$, \int, \noindent,},
+%   keywordstyle=\color{blue}\bfseries,
+%   ndkeywords={class, export, boolean, throw, implements, import, this},
+%   ndkeywordstyle=\color{darkgray}\bfseries,
+%   identifierstyle=\color{black},
+%   sensitive=false,
+%   comment=[l]{\%},
+%   morecomment=[s]{/*}{*/},
+%   commentstyle=\color{purple}\ttfamily,
+%   stringstyle=\color{red}\ttfamily,
+%   morestring=[b][\color{ForestGreen}]\$,
+%   morestring=[b][\color{ForestGreen}]\$\$
+% }
+
+
+%##############################################################################
+% Zdefiniowanie nowego, dodatkowego jezyka
+\lstdefinelanguage{Biblatex}{%
+  basicstyle=\ttfamily,
+  keywords={@Manual, @Book, @Article, @Book, @Online, },%
+  keywordstyle=\color{blue}\bfseries,%
+  ndkeywords={title, subtitle, author,year, month, day, version, language, url, number, volume, pages, journaltitle, isbn, address, publisher},%
+  ndkeywordstyle=\color{Emerald}\bfseries,%
+  %identifierstyle=\color{yellow},%
+  sensitive=false,%
+  commentstyle=\color{Gray}\ttfamily,%
+  comment=[l]{\%},%
+  stringstyle=\color{BrickRed}\ttfamily,%
+  morestring=[b]",%
+  morestring=[s]{\{}{\}},%
+  morestring=[s][\color{black}]{\{Kun}{,},% dla strongów od '{Kun' do ','
+  morestring=[s][\color{black}]{\{Popper84}{,},% dla strongów od '{Popp:' do ','
+  morestring=[s][\color{black}]{\{man:}{,},% dla strongów od '{man:' do ','
+  morestring=[s][\color{black}]{\{url:}{,}% dla strongów od '{url:' do ','
+}
+
+%##############################################################################
+% Zdefiniowanie nowego stylu LaTeX2e
+\lstdefinestyle{LaTeX2e}{%
+  language=[LaTeX]TeX,
+  keywordstyle=\color{Red},
+  basicstyle=\ttfamily,
+  alsoletter={\#},
+  morekeywords={chapter},
+  morestring=[b][\color{ForestGreen}]\$,
+  morestring=[b][\color{ForestGreen}]\$\$
+}
+
+%##############################################################################
+% Zdefiniowanie nowego stylu Bash - poprawiającego wyświetlanie niektórych komend
+\lstdefinestyle{Bash}{%
+  language=Bash,
+  keywordstyle=\color{MidnightBlue},
+  basicstyle=\ttfamily,
+  alsoletter={-},
+  sensitive=false,
+  morekeywords={sudo, wget, chmod, dpkg, git},
+  %literate={\$}{{\textcolor{MidnightBlue}{\$}}}1
+  %         {-}{{\textcolor{MidnightBlue}{-}}}1
+  %         {~}{{\textcolor{MidnightBlue}{\textasciitilde}}}1,
+}
+
+%##############################################################################
+% Ustawienie opcji dla wyświetlania kodów źródłowych
+% Wiecej: pakiet listings s. 26
+\lstset{%
+  %extendedchars=true, % celowo wyłączone
+  inputencoding=utf8,
+  %language=[LaTeX]TeX,
+  basicstyle=\footnotesize\ttfamily,
+  numberstyle=\footnotesize,
+  captionpos=t,
+  tabsize=2,
+  frame=tb,
+  numbers=left,
+  breaklines=true,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  style=LaTeX2e, % domyślny styl dla listingów = LaTeX2e
+  keywordstyle=\color{MidnightBlue},
+  commentstyle=\color{OliveGreen},
+  stringstyle=\color{Red},
+  emph={label},
+  literate=% Polish fonts for better UTF-8
+  {ą}{{\k{a}}}1     {ć}{{\'c}}1       {ę}{{\k{e}}}1     {ó}{{\'o}}1
+  {ń}{{\'n}}1       {ł}{{\l{}}}1      {ś}{{\'s}}1       {ź}{{\'z}}1
+  {ż}{{\.z}}1       {Ą}{{\k{A}}}1     {Ć}{{\'C}}1       {Ę}{{\k{E}}}1
+  {Ó}{{\'O}}1       {Ń}{{\'N}}1       {Ł}{{\L{}}}1      {Ś}{{\'S}}1
+  {Ź}{{\'Z}}1       {Ż}{{\.Z}}1
+  % Rest of most used latin fonts
+  {á}{{\'a}}1   {é}{{\'e}}1     {í}{{\'i}}1   {ó}{{\'o}}1   {ú}{{\'u}}1
+  {Á}{{\'A}}1   {É}{{\'E}}1     {Í}{{\'I}}1   {Ó}{{\'O}}1   {Ú}{{\'U}}1
+  {à}{{\`a}}1   {è}{{\`e}}1     {ì}{{\`i}}1   {ò}{{\`o}}1   {ù}{{\`u}}1
+  {À}{{\`A}}1   {È}{{\'E}}1     {Ì}{{\`I}}1   {Ò}{{\`O}}1   {Ù}{{\`U}}1
+  {ä}{{\"a}}1   {ë}{{\"e}}1     {ï}{{\"i}}1   {ö}{{\"o}}1   {ü}{{\"u}}1
+  {Ä}{{\"A}}1   {Ë}{{\"E}}1     {Ï}{{\"I}}1   {Ö}{{\"O}}1   {Ü}{{\"U}}1
+  {â}{{\^a}}1   {ê}{{\^e}}1     {î}{{\^i}}1   {ô}{{\^o}}1   {û}{{\^u}}1
+  {Â}{{\^A}}1   {Ê}{{\^E}}1     {Î}{{\^I}}1   {Ô}{{\^O}}1   {Û}{{\^U}}1
+  {œ}{{\oe}}1   {Œ}{{\OE}}1     {æ}{{\ae}}1   {Æ}{{\AE}}1   {ß}{{\ss}}1
+  {ç}{{\c c}}1  {Ç}{{\c C}}1    {ø}{{\o}}1    {å}{{\r a}}1  {Å}{{\r A}}1
+  {€}{{\EUR}}1  {£}{{\pounds}}1
+}
+
+
+%##############################################################################
+% Definicje własnych, nowych makr - makra wymagają pakietu 'xcolor'
+\newcommand{\red}[1]{{\color{RedOrange}{#1}}}
+\newcommand{\yellow}[1]{{\color{Dandelion}{#1}}}
+\newcommand{\green}[1]{{\color{LimeGreen}{#1}}}
+\newcommand{\RED}[1]{{\colorbox{RedOrange}{#1}}}
+\newcommand{\YELLOW}[1]{{\colorbox{Dandelion}{#1}}}
+\newcommand{\GREEN}[1]{{\colorbox{LimeGreen}{#1}}}
+
+
+
+%##############################################################################
+%% Traditional LaTeX or TeX follows...
+%%
+\ProcessOptions\relax
+
+%##############################################################################
+% Set numwidth of section
+\setlength{\cftsecnumwidth}{10mm}
+
+
+%##############################################################################
+% Zmienia przypisy na ciągłe w całym dokumencie (używa pakietu "chngcntr")
+\counterwithout{footnote}{chapter}
+
+
+%##############################################################################
+% Zmiana nazw opisu dla tabel i rysunków i innych elementów
+\addto\captionspolish{%
+  %\renewcommand{\contentsname}{\huge{}Spis treści}%
+  \renewcommand{\figurename}{Rysunek}%
+  %\renewcommand{\listfigurename}{Spis rysuneczków}%  nazwa testowa ;)
+  \renewcommand{\tablename}{Tabela}%
+  \renewcommand{\listtablename}{Spis tabel}%
+  % \renewcommand\lstlistingname{Kod źródłowy}
+  \renewcommand\lstlistlistingname{Spis kodów źródłowych}
+}
+
+
+%##############################################################################
+% Zdefiniowanie własnych nazw dla poszczególnych definicji, twierdzeń itp
+\theoremstyle{plain}
+\newtheorem{thm}{Twierdzenie}[section]
+\newtheorem{lem}[thm]{Lemat}      % w matematyce twierdzenie pomocnicze
+\newtheorem{prop}[thm]{Założenie}
+\newtheorem*{cor}{Wniosek}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definicja}
+\newtheorem{conj}{Przypuszczenie}[section]
+\newtheorem{exmp}{Przykład}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Spostrzeżenie}
+\newtheorem*{note}{Notka}
+
+
+%##############################################################################
+% Jednolity wygląd dla spisu kodów źródłowych (lstlistings) tak jak
+% pozostałych spisów tabel, rysunków, bibliografii
+% From: http://tex.stackexchange.com/questions/131575/formatting-listoftables-and-listofalgorithms
+
+
+% Unified look for "list of listings"
+\makeatletter
+\begingroup\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loldepth\@ne
+\newlistof{listings}{lol}{\lstlistlistingname}
+\endgroup
+\let\l@lstlisting\l@listings
+\AtBeginDocument{\addtocontents{lol}{\protect\addvspace{10\p@}}}
+\makeatother
+\renewcommand{\lstlistoflistings}{\listoflistings}
+
+%\renewcommand\cftlistingsaftersnum{:}
+%\renewcommand\cftlistingspresnum{Listing~}
+\cftsetindents{listings}{1.5em}{2.3em}
+
+
+% Unified look for "list of algorithms"
+\makeatletter
+\begingroup
+  \let\newcounter\@gobble
+  \let\setcounter\@gobbletwo
+  \globaldefs\@ne
+  \let\c@loadepth\@ne
+  \newlistof{algorithms}{loa}{\listalgorithmname}
+\endgroup
+\let\l@algorithm\l@algorithms
+\makeatother
+
+%\renewcommand\cftalgorithmsaftersnum{:}
+%\renewcommand\cftalgorithmspresnum{Algorithm~}
+\cftsetindents{algorithms}{1.5em}{2.3em}
+
+
+
+
+%%##############################################################################
+%% Ustawienia dla pakietu biblatex
+%\renewcommand*{\newunitpunct}{\addcomma\space}
+%%\renewbibmacro*{in:}{}
+%\renewbibmacro{in:}{}
+
+%\xpatchbibdriver{book}{%
+  %\newunit
+  %\iffieldundef{maintitle}
+  %{\printfield{volume}%
+    %\printfield{part}}
+  %{}%
+%}
+%{%
+%}{}{}
+
+%\xpatchbibdriver{book}{%
+  %\usebibmacro{publisher+location+date}%
+%}
+%{%
+  %\usebibmacro{publisher+location+date}%
+  %\newunit
+  %\printfield{volume}%
+  %\printfield{part}
+  %\usebibmacro{finentry}
+%}{}{}
+
+%\DeclareFieldFormat*{volume}{tom\addnbspace #1}
+%\DeclareFieldFormat{journaltitle}{\mkbibquote{#1}}
+%\DeclareFieldFormat[article,periodical]{number}{nr~#1}% number of a journal
+
+%\DeclareFieldFormat
+%[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+%{title}{\mkbibemph{#1}}
+%%
+%\renewbibmacro*{volume+number+eid}{%
+  %\printfield{volume}%
+  %\setunit{\addcomma\space}%
+  %\printfield{number}%
+  %\setunit{\addcomma\space}%
+  %\printfield{eid}}
+
+%\renewbibmacro*{journal+issuetitle}{%
+  %\usebibmacro{journal}%
+  %\setunit*{\addspace}%
+  %\iffieldundef{series}
+  %{}
+  %{%
+    %\newunit
+    %\printfield{series}%
+    %\setunit{\addspace}}%
+  %\usebibmacro{issue+date}%
+  %\setunit{\addspace}%
+  %\usebibmacro{issue}%
+  %\setunit{\addspace}%
+  %\usebibmacro{volume+number+eid}%
+  %\newunit
+%}
+
+%\renewbibmacro*{issue+date}{%
+  %\iffieldundef{issue}
+  %{\usebibmacro{date}}
+  %{%
+    %\printfield{issue}%
+    %\setunit*{\addspace}%
+    %\usebibmacro{date}
+  %}%
+  %\newunit
+%}
+
+%\renewbibmacro*{publisher+location+date}{%
+  %\printlist{publisher}%
+  %\iflistundef{publisher}
+  %{\setunit*{\addcomma\space}}
+  %{\setunit*{\addcomma\space}}%
+  %\printlist{location}%
+  %\setunit*{\addspace}%
+  %\usebibmacro{date}%
+  %\newunit
+%}
+
+
 \endinput
-
-
+%%
+%% End of file
