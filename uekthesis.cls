@@ -8,7 +8,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{### uekthesis.cls --- ver. 1.0.0 --- Maciej Sypień ###}
+\message{### uekthesis.cls --- ver. 1.0.1 --- Maciej Sypień ###}
 
 \newif\ifpdflatex\pdflatexfalse%
 \NeedsTeXFormat{LaTeX2e}
@@ -120,90 +120,33 @@
 \RequirePackage{hhline}                % pakiet dla łaczenia kolumn w tabelach
 \RequirePackage{listings}              % pakiet dla kodów zródłowych
 \RequirePackage{indentfirst}           % uzyskanie wcięcia przy pierwszym akapicie
-\RequirePackage{chngcntr}              % pakiet który definiuje komendy \coun­ter­within oraz \coun­ter­with­out
 \RequirePackage{textcomp, gensymb}     % pakiet który definiuje znaki m.in. \degree, \textdegree
 \RequirePackage{cases}                 % pakiet numeracji równań z 'numcases'
 \RequirePackage{todonotes}             % pakiet pomagający przy prowadzeniu notatek "Co jeszcze do zrobienia"
 
+
 %##############################################################################
-% DEFAULT OPTIONS
-
-  % uekthesis introduction pages counter
-  \newcounter{introPageCounter}
-  \setcounter{introPageCounter}{1}
-
-  %###################################################
+\DeclareOption{oneside}{%
   % Set geometry for oneside (default)
   \geometry{lmargin=30mm, rmargin=20mm, tmargin=30mm, bmargin=30mm, foot=10mm, head=10mm}
 
-  %###################################################
   % Thesis oneside OPTION (default)
   % definiuje dolne i górne wykończenie strony
-  \def\thesisHeaders{
+  \def\thesisHeaders{%
     \fancyhf{}
     \fancyhead{}
-    \fancyhead[L]{\small\textit \rightmark}
-    \fancyhead[R]{\bfseries \thepage}
+    \fancyhead[L]{\small\textit\rightmark}
+    \fancyhead[R]{\bfseries\thepage}
 
     \fancypagestyle{plain}{%
-      \fancyhf{}                          % clear all header and footer fields
+      \fancyhf{}% clear all header and footer fields
       \renewcommand{\headrulewidth}{0pt}
       \renewcommand{\footrulewidth}{0pt}
     }
-    \fancyfoot[RO]{\small \@globalShortAuthor\quad\textit{\@globalShortTitle}}
+    \fancyfoot[RO]{\small\@globalShortAuthor\quad\textit{\@globalShortTitle}}
   }
+}
 
-  %###################################################
-  % set geometry for two-side; later is declaration for oneside
-  \linespread{1.3}
-
-  %###################################################
-  % znak rozpoczynający każdą listę wypunktową
-  \renewcommand{\labelitemi}{--}
-
-  %###################################################
-  % domyślnie puste
-  \def\addVersion{}
-  \def\addIndexNumber{}
-  \def\appendKeywords{}
-  \def\statementOfTheAuthor{}
-  \def\thanksOfTheAuthor{}
-
-  %###################################################
-  % Supervisor
-  \def\addSupervisor{
-    \begin{flushright}
-      \@globalUnderTheSupervisonOf \quad\\
-      \@globalSupervisor\quad
-    \end{flushright}
-  }
-
-  %###################################################
-  % Ustawienia parametrów dla tytułów rozdziałów, podrozdziałów, itd.
-
-  %\titleformat{\chapter}[block]
-  %  {\bfseries\Huge}{\filright \LARGE\thechapter. }{0ex}{}
-
-  % odstępy: lewy, góra, dół
-  \titlespacing{\chapter}{0pt}{17mm}{19mm}
-
-  \titleformat{\section}[block]
-    {\bfseries\Large}{\filright\Large\thesection. }{0ex}{}
-  \titlespacing{\section}{0mm}{8mm plus 0mm minus 1mm}{4mm plus 0mm minus 1mm}
-
-  \titleformat{\subsection}[block]
-    {\bfseries\large}{\filright\large\thesubsection. }{0ex}{}
-  \titlespacing{\subsection}{0mm}{6mm}{2.5mm}
-
-  \titleformat{\subsubsection}[block]
-    {\bfseries\normalsize}{\filright\normalsize\thesubsubsection. }{0ex}{}
-  \titlespacing{\subsubsection}{0mm}{3mm}{1.5mm}
-
-%########################## END OF DEFAULT OPTIONS ############################
-
-
-
-%##############################################################################
 % Thesis twoside (Class OPTION)
 \DeclareOption{twoside}{%
   \geometry{twoside=true,lmargin=3cm,rmargin=3cm,bindingoffset=0cm}
@@ -211,10 +154,10 @@
   \def\thesisHeaders{
     \fancyhf{}
     \fancyhead{}
-    \fancyhead[RE,LO]{\textsl{\small \rightmark}}
-    \fancyhead[RO,LE]{\bfseries \thepage}
+    \fancyhead[RE,LO]{\textsl{\small\rightmark}}
+    \fancyhead[RO,LE]{\bfseries\thepage}
 
-    \fancyfoot[LE,RO]{\small \@globalShortAuthor\quad\textit{\@globalShortTitle}}
+    \fancyfoot[LE,RO]{\small\@globalShortAuthor\quad\textit{\@globalShortTitle}}
   }
 }
 
@@ -222,7 +165,7 @@
 %##############################################################################
 % File Version (Class OPTION)
 \DeclareOption{fileVersion}{%
-  \def\addVersion{|  wersja: \@globalFileVersion}
+  \def\addVersion{|~wersja: \@globalFileVersion}
 }
 
 %##############################################################################
@@ -230,15 +173,14 @@
 \DeclareOption{indexNumber}{%
   \def\addIndexNumber{
     \begin{center}
-    Nr.\ indeksu:
-    \@globalIndexNumber
+    Nr.\ indeksu:\ \@globalIndexNumber%
     \end{center}
   }
 }
 
 
 %##############################################################################
-% Statement of the Author (Class OPTION)
+% Statement of the Author (Class OPTIONS)
 \DeclareOption{male}{%
   \DeclareOption{authorStatement}{%
     \def\statementOfTheAuthor{
@@ -296,8 +238,68 @@
 }% END male
 
 
+
 %##############################################################################
-\ProcessOptions%
+% DEFAULT OPTIONS
+
+  % uekthesis introduction pages counter
+  \newcounter{introPageCounter}
+  \setcounter{introPageCounter}{1}
+
+  %###################################################
+  % set geometry for two-side; later is declaration for oneside
+  \linespread{1.3}
+
+  %###################################################
+  % znak rozpoczynający każdą listę wypunktową
+  \renewcommand{\labelitemi}{--}
+
+  %###################################################
+  % domyślnie puste
+  \def\addVersion{}
+  \def\addIndexNumber{}
+  \def\appendKeywords{}
+  \def\statementOfTheAuthor{}
+  \def\thanksOfTheAuthor{}
+
+
+  % Włączenie domyślnych opcji konfiguracyjnych
+  \ExecuteOptions{oneside}
+  \ExecuteOptions{male}
+
+  %###################################################
+  % Supervisor
+  \def\addSupervisor{
+    \begin{flushright}
+      \@globalUnderTheSupervisonOf \quad\\
+      \@globalSupervisor\quad
+    \end{flushright}
+  }
+
+  %###################################################
+  % Ustawienia parametrów dla tytułów rozdziałów, podrozdziałów, itd.
+
+  %\titleformat{\chapter}[block]
+    %{\bfseries\Huge}{\filright\LARGE\thechapter. }{0ex}{}
+  \titlespacing{\chapter}{0pt}{17mm}{19mm}% odstępy: lewy, góra, dół
+
+  \titleformat{\section}[block]
+    {\bfseries\Large}{\filright\Large\thesection. }{0ex}{}
+  \titlespacing{\section}{0mm}{8mm plus 0mm minus 1mm}{4mm plus 0mm minus 1mm}
+
+  \titleformat{\subsection}[block]
+    {\bfseries\large}{\filright\large\thesubsection. }{0ex}{}
+  \titlespacing{\subsection}{0mm}{6mm}{2.5mm}
+
+  \titleformat{\subsubsection}[block]
+    {\bfseries\normalsize}{\filright\normalsize\thesubsubsection. }{0ex}{}
+  \titlespacing{\subsubsection}{0mm}{3mm}{1.5mm}
+
+%########################## END OF DEFAULT OPTIONS ############################
+
+
+%##############################################################################
+\ProcessOptions\relax%
 
 \newcommand{\titlepages}{% Ustawienia stron tytułowych
 
@@ -361,7 +363,7 @@
 
 %##############################################################################
 % Ustawienia parametrów generowania spisu treści i spisu rysunków
-\renewcommand{\cfttoctitlefont}{\bfseries\Large}
+%\renewcommand{\cfttoctitlefont}{\bfseries\Huge}
 \renewcommand{\cftbeforetoctitleskip}{20mm}
 \renewcommand{\cftaftertoctitleskip}{19mm}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdot}}
