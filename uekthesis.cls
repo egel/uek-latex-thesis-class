@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %  FileName:     uekthesis.cls
-%  Author:       Maciej Sypień (maciej.sypien@gmail.com)
+%  Author:       Maciej Sypień <maciej.sypien@gmail.com>
 %  University:   Cracow University of Economics
 %                (Uniwersytet Ekonomiczny w Krakowie)
 %  Inspired by aghdpl.cls
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{### uekthesis.cls --- ver. 1.0.1 --- Maciej Sypień ###}
+\message{### uekthesis.cls --- ver. 1.1.0 --- Maciej Sypień ###}
 
 \newif\ifpdflatex\pdflatexfalse%
 \NeedsTeXFormat{LaTeX2e}
