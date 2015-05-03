@@ -19,7 +19,6 @@
 
 %##############################################################################
 % Definicje zmiennych
-%##############################################################################
 \def\globalFullAuthor#1              {\gdef\@globalFullAuthor{#1}}                % Pełna nazwa autora pracy
 \def\globalShortAuthor#1             {\gdef\@globalShortAuthor{#1}}               % Autor - zwięzła forma wydruku
 \def\globalFullTitle#1               {\gdef\@globalFullTitle{#1}}                 % Pełny tytuł pracy
@@ -59,7 +58,6 @@
 %##############################################################################
 % Ustawienie linkowania dokumetu oraz elementów wyświetlania pdfa
 % (Rozdział 4.7.4 z latex w 129 minut)
-%##############################################################################
 \AtBeginDocument{%
   \hypersetup{%
     unicode=true,
@@ -87,7 +85,6 @@
 
 %##############################################################################
 % Wymagane pakiety
-%##############################################################################
 \RequirePackage[autostyle=true]{csquotes}              %
 \RequirePackage[T1]{fontenc}           % Nowy zestaw czcionek
 \RequirePackage{times}                 % Times - Czcionki wektorowe
@@ -123,7 +120,6 @@
 \RequirePackage{textcomp, gensymb}     % pakiet który definiuje znaki m.in. \degree, \textdegree
 \RequirePackage{cases}                 % pakiet numeracji równań z 'numcases'
 \RequirePackage{todonotes}             % pakiet pomagający przy prowadzeniu notatek "Co jeszcze do zrobienia"
-
 
 %##############################################################################
 \DeclareOption{oneside}{%
@@ -161,7 +157,6 @@
   }
 }
 
-
 %##############################################################################
 % File Version (Class OPTION)
 \DeclareOption{fileVersion}{%
@@ -177,7 +172,6 @@
     \end{center}
   }
 }
-
 
 %##############################################################################
 % Statement of the Author (Class OPTIONS)
@@ -220,7 +214,6 @@
   }
 }% END male
 
-
 %##############################################################################
 % Thanks (Class OPTION)
 \DeclareOption{thanks}{%
@@ -237,10 +230,8 @@
   }
 }% END male
 
-
-
 %##############################################################################
-% DEFAULT OPTIONS
+% DEFAULT CLASS OPTIONS
 
   % uekthesis introduction pages counter
   \newcounter{introPageCounter}
@@ -262,7 +253,7 @@
   \def\statementOfTheAuthor{}
   \def\thanksOfTheAuthor{}
 
-
+  %###################################################
   % Włączenie domyślnych opcji konfiguracyjnych
   \ExecuteOptions{oneside}
   \ExecuteOptions{male}
@@ -278,7 +269,6 @@
 
   %###################################################
   % Ustawienia parametrów dla tytułów rozdziałów, podrozdziałów, itd.
-
   %\titleformat{\chapter}[block]
     %{\bfseries\Huge}{\filright\LARGE\thechapter. }{0ex}{}
   \titlespacing{\chapter}{0pt}{17mm}{19mm}% odstępy: lewy, góra, dół
