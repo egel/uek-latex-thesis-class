@@ -42,6 +42,9 @@ nobreak=true
 % 2em - odstęp po numerze odwołującym sie do elementu (np: 4.3)
 \def\l@lstlisting#1#2{\@dottedtocline{1}{1.5em}{2.3em}{#1}{#2}}
 
+% odstępy pomiędzy kolejnymi rozdziałami w liście listingów
+\let\Chapter\chapter
+\def\chapter{\addtocontents{lol}{\protect\addvspace{10pt}}\Chapter}
 
 %##############################################################################
 % Defninicja komendy zmieniająca początkowy duży znak litery na mały
