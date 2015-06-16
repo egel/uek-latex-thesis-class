@@ -95,7 +95,7 @@
 \RequirePackage{fancyhdr}              %
 \RequirePackage[hyphens]{url}          % Pakiet url + dzielenie myślników
 \RequirePackage{titlesec}              %
-\RequirePackage{tocloft}               %
+\RequirePackage[titles]{tocloft}               %
 \RequirePackage{amsmath}               % Moduł matematyczny AMS
 \RequirePackage{amsfonts}              % pakiet czcionek AMS
 \RequirePackage{amssymb}               % Symbole matematyczne AMS
@@ -342,18 +342,20 @@
 \renewcommand{\cftchappagefont}{\normalsize}
 \renewcommand{\cftloftitlefont}{\bfseries\large\MakeUppercase} % change listOfFigures title
 \renewcommand{\cftlottitlefont}{\bfseries\large\MakeUppercase} % change listOfTables title
-\renewcommand{\cftloctitlefont}{\bfseries\large\MakeUppercase} % change listOfContent title
+
+
 % change listOfListings title cannot be changed from here. It changes from .sty file
 %\renewcommand{\cfttoctitlefont}{\bfseries\large\MakeUppercase}
-\setlength{\cftafterloftitleskip}{0pt}
-\setlength{\cftafterlottitleskip}{0pt}
-\setlength{\cftafterloctitleskip}{1pt}
 
-\setlength{\cftparskip}{2pt}
+\setlength{\cftafterloftitleskip}{0mm}
+\setlength{\cftafterlottitleskip}{0mm}
+%\setlength{\cftafterloctitleskip}{0}
+\setlength{\cftbeforechapskip}{0em}
+%
+\setlength{\cftparskip}{0mm}
 \setlength{\cftbeforechapskip}{0mm}
-
-\renewcommand{\cftbeforetoctitleskip}{20mm}
-\renewcommand{\cftaftertoctitleskip}{19mm}
+\renewcommand{\cftbeforetoctitleskip}{0mm}
+\renewcommand{\cftaftertoctitleskip}{0mm}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdot}}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdot}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdot}}
