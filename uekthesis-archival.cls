@@ -124,7 +124,7 @@
 %##############################################################################
 \DeclareOption{oneside}{%
   % Set geometry for oneside (default)
-  \geometry{lmargin=15mm, rmargin=10mm, tmargin=17mm, bmargin=15mm, foot=10mm, head=10mm}
+  \geometry{lmargin=15mm, rmargin=10mm, tmargin=20mm, bmargin=18mm, foot=10mm, head=10mm}
 
   % Thesis oneside OPTION (default)
   % definiuje dolne i górne wykończenie strony
