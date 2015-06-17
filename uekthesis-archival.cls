@@ -343,16 +343,14 @@
 \renewcommand{\cftloftitlefont}{\bfseries\large\MakeUppercase} % change listOfFigures title
 \renewcommand{\cftlottitlefont}{\bfseries\large\MakeUppercase} % change listOfTables title
 
-
 % change listOfListings title cannot be changed from here. It changes from .sty file
 %\renewcommand{\cfttoctitlefont}{\bfseries\large\MakeUppercase}
 
 \setlength{\cftafterloftitleskip}{0mm}
 \setlength{\cftafterlottitleskip}{0mm}
-%\setlength{\cftafterloctitleskip}{0}
 \setlength{\cftbeforechapskip}{0em}
-%
-\setlength{\cftparskip}{0mm}
+
+\setlength{\cftparskip}{2mm}
 \setlength{\cftbeforechapskip}{0mm}
 \renewcommand{\cftbeforetoctitleskip}{0mm}
 \renewcommand{\cftaftertoctitleskip}{0mm}
@@ -363,3 +361,4 @@
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
 
+\setlength{\itemsep}{0pt} % space between bibliography items
