@@ -10,23 +10,24 @@ LaTeX thesis class created for students of Cracow University of Economics.
 ***
 
 <p align="center">
-  <img title="First page preview" src="http://i.imgur.com/SOP7s7Q.png" width="700"/>
+  <img title="Preview of first page" src="http://i.imgur.com/SOP7s7Q.png" width="700"/>
 </p>
 
 
 ## Features
 
   - Full Polish fonts support (include listings);
-  - [`UTF-8`][] encoding by default;
+  - [`UTF-8`][wiki-utf8] encoding by default
   - Already implemented
-    [The UEK Editorial Recommendations][repo-wiki-edit-recommends];
+    [The UEK Editorial Recommendations][repo-wiki-edit-recommends]
   - Modern bibliography management with [biblatex][ctan-biblatex] +
     [biber][biber-page]
-  - Many [class options](#class-options) for easy personal configuration;
-  - Autoconfiguration for male or female formatting of thesis;
-  - Easy to set global variables;
-  - Ready for Windows, Linux and Mac OSX;
-  - Download repository, link class, compile your document and have great fun;
+  - Many [class options](#class-options) for easy personal configuration
+  - Auto configuration formatting of thesis for male or female
+  - Easy to set global variables
+  - Ready for Windows, Linux and Mac OSX
+
+Download repository, link the class, compile your document and have great fun! :)
 
 
 ## Class options
@@ -35,14 +36,14 @@ LaTeX thesis class created for students of Cracow University of Economics.
 > `indexnumber`, or `IndexNumber`, and so on...)
 
   - `male` or `female` - sets all general setting (like ex: author statement)
-    to men or women preferences (**default value is**: male);
+    to men or women preferences (**default value is**: male)
   - `authorStatement` - prints author's statement (**default value is**: off)
     <br/>This attach to document that author's thesis was made by himself and
     himself alone.
   - `keywords` - print keywords from `\globalKeywords` variable (**default value
-    is**: off);
+    is**: off)
   - `twoside` - sets type of printing of the document (**default value is**:
-    oneside);
+    oneside)
   - `fileVersion` - print version of document (**default value is**: off)
     <br/>It's usually used only for helping purposes or improvement for
     repository management ex: Git. This option is defined by `\globalVersion` variable.
@@ -50,7 +51,7 @@ LaTeX thesis class created for students of Cracow University of Economics.
     <br/>This option can be set by `\globalIndexNumber` variable.
   - `thanks` - print student's thanks phrase; (**default value is**: off)
     <br/>Default thanks phrase can be changed by modifying
-    `\printAcknowledgments`
+    `\globalAcknowledgements` variable.
 
 
 ## Installation
