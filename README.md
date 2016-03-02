@@ -5,22 +5,27 @@ LaTeX thesis class created for students of Cracow University of Economics.
 
 ***
 [Installation](#installation) | [Class options](#class-options) |
-[**Live Example**][live-example] | [Learn more on
-wiki](https://github.com/egel/uek-latex-thesis-class/wiki) | [License](#license)
+[**Live Example**][live-example] | [Learn more on wiki][repo-wiki] |
+[License](#license)
 ***
+
+<p align="center">
+  <img title="First page preview" src="http://i.imgur.com/SOP7s7Q.png" width="700"/>
+</p>
+
 
 ## Features
 
   - Full Polish fonts support (include listings);
-  - UTF-8 encoding by default;
+  - [`UTF-8`][] encoding by default;
   - Already implemented
-    [The UEK Editorial Recommendations][wiki-edit-recommends];
+    [The UEK Editorial Recommendations][repo-wiki-edit-recommends];
   - Modern bibliography management with [biblatex][ctan-biblatex] +
     [biber][biber-page]
   - Many [class options](#class-options) for easy personal configuration;
-  - Autoconfiguration for male or female formating of thesis;
+  - Autoconfiguration for male or female formatting of thesis;
   - Easy to set global variables;
-  - Ready for Windows and Linux OSs;
+  - Ready for Windows, Linux and Mac OSX;
   - Download repository, link class, compile your document and have great fun;
 
 
@@ -39,10 +44,13 @@ wiki](https://github.com/egel/uek-latex-thesis-class/wiki) | [License](#license)
   - `twoside` - sets type of printing of the document (**default value is**:
     oneside);
   - `fileVersion` - print version of document (**default value is**: off)
-    <br/>It's usually used only for helping purposes. This option is defined by
-    `\globalVersion` variable.
+    <br/>It's usually used only for helping purposes or improvement for
+    repository management ex: Git. This option is defined by `\globalVersion` variable.
   - `indexNumber` - print student's index number; (**default value is**: off)
     <br/>This option can be set by `\globalIndexNumber` variable.
+  - `thanks` - print student's thanks phrase; (**default value is**: off)
+    <br/>Default thanks phrase can be changed by modifying
+    `\printAcknowledgments`
 
 
 ## Installation
@@ -50,6 +58,7 @@ wiki](https://github.com/egel/uek-latex-thesis-class/wiki) | [License](#license)
 1. [Install necessary libraries](#installation-of-texlive-or-miktex)
   + [Linux](#linux)
   + [Windows](#windows)
+  + [Mac OSX](#mac-osx)
 2. [Copy repository to hard drive](#copy-this-repository-to-hard-drive)
 3. [Compile document](#compile-whole-document-using-uekthesis-class)
 3. [Become a LaTeX Ninja!](#become-a-latex-ninja)
@@ -66,7 +75,9 @@ For most linux distributions based on [Debian](https://www.debian.org/) like:
 [ElementaryOS](http://elementaryos.org/), etc.) you could install **texlive** by
 run this command in terminal:
 
-    sudo apt-get install texlive-full
+```bash
+sudo apt-get install texlive-full
+```
 
 **apt-get** program will install whole bunch of *Tex* libs (~1.5GB). It's a lot
 of stuff and contains more libraries then we'll ever use, but the main advantage
@@ -82,9 +93,14 @@ simple as that ;)
 > instructions.
 
 ##### Windows
-You can download [Miktex](http://miktex.org/). It's more-less an equivalent of
+You can download [Miktex][miktex-webpage]. It's more-less an equivalent of
 *Texlive* libs and it's build specially for Windows systems. On Miktex's website
 you will find all information you need to use this piece of software.
+
+
+##### Mac OSX
+Download and install full version of
+[MacTeX][mactex-webpage] and that is pretty much it :)
 
 
 ### Copy this repository to hard drive
@@ -96,13 +112,13 @@ you will find all information you need to use this piece of software.
 
   With github account:
 
-  ```
+  ```bash
   git clone git@github.com:egel/uek-latex-thesis-class.git "lib"
   ```
 
   or without github account:
 
-  ```
+  ```bash
   git clone https://github.com/egel/uek-latex-thesis-class.git "lib"
   ```
 
@@ -110,7 +126,7 @@ you will find all information you need to use this piece of software.
 3. or use Git's [**submodules**][git-submodules] to add this class to your
    existing thesis repository (**recommended**):
 
-  ```
+  ```bash
   cd <your-class-folder>
   git submodule add git@github.com:egel/uek-latex-thesis-class.git "lib"
   ```
@@ -126,14 +142,19 @@ you will find all information you need to use this piece of software.
 After download the class, then in few formal steps you can compile you file
 (standard full LaTeX compilation).
 
-    $ pdflatex main.tex
-    $ pdflatex main.tex
-    $ biber bibliography.tex
-    $ pdflatex main.tex
+```bash
+$ pdflatex main.tex
+$ pdflatex main.tex
+$ biber bibliography.tex
+$ pdflatex main.tex
+```
 
 If this looks weird to you, maybe you give a shot to
-[TeXstudio][texstudio-page], the best known to me LaTeX editor (it hasn't got
-candy look, but it's the most configurable program from all I've been tried).
+[TeXstudio][texstudio-page], the best known to me LaTeX full GUI editor (it
+hasn't got candy look, but it's the most configurable program from all I've been
+tried) or if you prefer LUI choose [VIM](http://www.vim.org/) with
+[latex-suite](http://vim-latex.sourceforge.net/)
+plugin.
 
 
 ### Become a LaTeX Ninja
@@ -147,18 +168,19 @@ are very welcome :)
 
 If you have some problems you can leave question in [issues][repo-issues] (some
 question may be worth to ask in front of the public) or mail me directly
-maciej@egel.pl
-
+`maciej@egel.pl`
 
 ## License
 MIT License, 2014 - Maciej Sypień
 
-
-
   [live-example]: https://www.sharelatex.com/project/548b548ddbb91e9c7f2351d6 "UEK Thesis Live Example"
-  [wiki-edit-recommends]: https://github.com/egel/uek-latex-thesis-class/wiki/The-Editorial-Recommendations
+  [repo-wiki]: https://github.com/egel/uek-latex-thesis-class/wiki
+  [repo-wiki-edit-recommends]: https://github.com/egel/uek-latex-thesis-class/wiki/The-Editorial-Recommendations
+  [repo-issues]: https://github.com/egel/uek-latex-thesis-class/issues
   [ctan-biblatex]: https://www.ctan.org/pkg/biblatex
   [biber-page]: http://biblatex-biber.sourceforge.net/
   [git-submodules]: http://git-scm.com/book/en/v2/Git-Tools-Submodules
   [texstudio-page]: http://www.texstudio.org/
-  [repo-issues]: https://github.com/egel/uek-latex-thesis-class/issues
+  [wiki-utf8]: https://en.wikipedia.org/wiki/UTF-8
+  [miktex-webpage]: http://miktex.org/
+  [mactex-webpage]: http://tug.org/mactex/mactex-download.html
