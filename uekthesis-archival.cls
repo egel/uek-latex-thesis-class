@@ -8,34 +8,34 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{### uekthesis-archival.cls --- ver. 1.1.0 --- Maciej Sypień ###}
+\message{### uekthesis-archival.cls --- ver. 1.1.1 --- Maciej Sypień ###}
 
 \newif\ifpdflatex\pdflatexfalse%
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lib/uekthesis-archival}[2014/16/12 LaTeX class for thesis archival documents]
-\DeclareOption{pdflatex}{\pdflatextrue}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
-\ProcessOptions\LoadClass[a4paper, 9pt, oneside, openright]{report}
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesClass{lib/uekthesis-archival}[2014/16/12 LaTeX class for thesis archival documents]%
+\DeclareOption{pdflatex}{\pdflatextrue}%
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}%
+\ProcessOptions\LoadClass[a4paper,9pt,oneside,openright]{report}%
 
 %##############################################################################
 % Definicje zmiennych
-\def\globalFullAuthor#1              {\gdef\@globalFullAuthor{#1}}                % Pełna nazwa autora pracy
-\def\globalShortAuthor#1             {\gdef\@globalShortAuthor{#1}}               % Autor - zwięzła forma wydruku
-\def\globalFullTitle#1               {\gdef\@globalFullTitle{#1}}                 % Pełny tytuł pracy
-\def\globalShortTitle#1              {\gdef\@globalShortTitle{#1}}                % Krótki, zwięzły tytuł pracy # najlepiej aby nie zawierał komend LaTeXa
-\def\globalFullUniversity#1          {\gdef\@globalFullUniversity{#1}}            % Pełna nazwa uniwersytetu
-\def\globalShortUniversity#1         {\gdef\@globalShortUniversity{#1}}           % Pełna nazwa uniwersytetu
-\def\globalDepartment#1              {\gdef\@globalDepartment{#1}}                % Wydział
-\def\globalThesisType#1              {\gdef\@globalThesisType{#1}}                % Typ pracy dyplomowej
-\def\globalUnderTheSupervisonOf#1    {\gdef\@globalUnderTheSupervisonOf {#1}}     % pod kierunkiem (napis)
-\def\globalSupervisor#1              {\gdef\@globalSupervisor{#1}}                % Promotor
-\def\globalAcknowledgements#1        {\gdef\@globalAcknowledgements{#1}}          % Podziękowania
-\def\globalDegreeprogramme#1         {\gdef\@globalDegreeprogramme{#1}}           % Kierunek studiów
-\def\globalFileVersion#1             {\gdef\@globalFileVersion{#1}}               % Wersja pracy
-\def\globalIndexNumber#1             {\gdef\@globalIndexNumber{#1}}               % Numer indeksu studneta
-\def\globalCity#1                    {\gdef\@globalCity{#1}}                      % Miasto
-\def\globalYear#1                    {\gdef\@globalYear{#1}}                      % Rok
-\def\globalKeywords#1                {\gdef\@globalKeywords{#1}}                  % zestaw słów kluczowych dla pracy
+\def\globalFullAuthor#1              {\gdef\@globalFullAuthor{#1}}%                % Pełna nazwa autora pracy
+\def\globalShortAuthor#1             {\gdef\@globalShortAuthor{#1}}%               % Autor - zwięzła forma wydruku
+\def\globalFullTitle#1               {\gdef\@globalFullTitle{#1}}%                 % Pełny tytuł pracy
+\def\globalShortTitle#1              {\gdef\@globalShortTitle{#1}}%                % Krótki, zwięzły tytuł pracy # najlepiej aby nie zawierał komend LaTeXa
+\def\globalFullUniversity#1          {\gdef\@globalFullUniversity{#1}}%            % Pełna nazwa uniwersytetu
+\def\globalShortUniversity#1         {\gdef\@globalShortUniversity{#1}}%           % Pełna nazwa uniwersytetu
+\def\globalDepartment#1              {\gdef\@globalDepartment{#1}}%                % Wydział
+\def\globalThesisType#1              {\gdef\@globalThesisType{#1}}%                % Typ pracy dyplomowej
+\def\globalUnderTheSupervisonOf#1    {\gdef\@globalUnderTheSupervisonOf{#1}}%      % pod kierunkiem (napis)
+\def\globalSupervisor#1              {\gdef\@globalSupervisor{#1}}%                % Promotor
+\def\globalAcknowledgements#1        {\gdef\@globalAcknowledgements{#1}}%          % Podziękowania
+\def\globalDegreeprogramme#1         {\gdef\@globalDegreeprogramme{#1}}%           % Kierunek studiów
+\def\globalFileVersion#1             {\gdef\@globalFileVersion{#1}}%               % Wersja pracy
+\def\globalIndexNumber#1             {\gdef\@globalIndexNumber{#1}}%               % Numer indeksu studneta
+\def\globalCity#1                    {\gdef\@globalCity{#1}}%                      % Miasto
+\def\globalYear#1                    {\gdef\@globalYear{#1}}%                      % Rok
+\def\globalKeywords#1                {\gdef\@globalKeywords{#1}}%                  % zestaw słów kluczowych dla pracy
 
 % Zdefiniowanie kilku zmiennych do umieszczenia w tekscie
 \def\printFullAuthor{\@globalFullAuthor}              % Display
@@ -85,6 +85,7 @@
 
 %##############################################################################
 % Wymagane pakiety
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[autostyle=true]{csquotes}              %
 \RequirePackage[T1]{fontenc}           % Nowy zestaw czcionek
 \RequirePackage{times}                 % Times - Czcionki wektorowe
@@ -95,7 +96,7 @@
 \RequirePackage{fancyhdr}              %
 \RequirePackage[hyphens]{url}          % Pakiet url + dzielenie myślników
 \RequirePackage{titlesec}              %
-\RequirePackage[titles]{tocloft}               %
+\RequirePackage[titles]{tocloft}       %
 \RequirePackage{amsmath}               % Moduł matematyczny AMS
 \RequirePackage{amsfonts}              % pakiet czcionek AMS
 \RequirePackage{amssymb}               % Symbole matematyczne AMS
@@ -275,7 +276,6 @@
 
 
 %##############################################################################
-\ProcessOptions\relax%
 
 \newcommand{\titlepages}{% Ustawienia stron tytułowych
 
@@ -298,7 +298,7 @@
 
     {\LARGE\bfseries\printFullTitle}\\
     \vspace*{10mm}
-    {\large \printThesisType{\ }\addVersion}\\
+    {\large\printThesisType{\ }\addVersion}\\
     \vspace*{10mm}
   \end{center}
 
@@ -319,6 +319,7 @@
 
   \setcounter{page}{\value{introPageCounter}}
 }
+\ProcessOptions\relax%
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
