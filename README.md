@@ -174,7 +174,7 @@ question may be worth to ask in front of the public) or mail me directly
 ## License
 MIT License, 2014 - Maciej Sypień
 
-  [live-example]: https://www.sharelatex.com/project/548b548ddbb91e9c7f2351d6 "UEK Thesis Live Example"
+  [live-example]: https://www.sharelatex.com/project/5713903dee119a314abcad5d "UEK Thesis Live Example"
   [repo-wiki]: https://github.com/egel/uek-latex-thesis-class/wiki
   [repo-wiki-edit-recommends]: https://github.com/egel/uek-latex-thesis-class/wiki/The-Editorial-Recommendations
   [repo-issues]: https://github.com/egel/uek-latex-thesis-class/issues
