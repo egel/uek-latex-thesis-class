@@ -8,7 +8,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{### uekthesis.cls --- ver. 1.1.1 --- Maciej Sypień ###}
+\message{### uekthesis.cls --- ver. 1.1.2 --- Maciej Sypień ###}
 
 \newif\ifpdflatex\pdflatexfalse%
 \NeedsTeXFormat{LaTeX2e}%
